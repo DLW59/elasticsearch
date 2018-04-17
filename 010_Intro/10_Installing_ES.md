@@ -16,14 +16,17 @@ cd  elasticsearch-$VERSION
 
 > **提示：**
 > 
-> 在生产环境安装时，除了以上方法，你还可以使用Debian或者RPM安装包，地址在这里：[downloads page](http://www.elasticsearch.org/downloads)，或者也可以使用官方提供的 [Puppet module](https://github.com/elasticsearch/puppet-elasticsearch) 或者
+> 在生产环境安装时，除了以上方法，你还可以使用Debian或者RPM安装包，地址在这里：[downloads page](http://www.elasticsearch.org/downloads)，
+或者也可以使用官方提供的 [Puppet module](https://github.com/elasticsearch/puppet-elasticsearch) 或者
 > [Chef cookbook](https://github.com/elasticsearch/cookbook-elasticsearch)。
 
 ## 安装Marvel
 
-[Marvel](http://www.elasticsearch.com/marvel)是Elasticsearch的管理和监控工具，在开发环境下免费使用。它包含了一个叫做`Sense`的交互式控制台，使用户方便的通过浏览器直接与Elasticsearch进行交互。
+[Marvel](http://www.elasticsearch.com/marvel)是Elasticsearch的管理和监控工具，在开发环境下免费使用。它包含了一个叫做`Sense`的交互式控制台，
+使用户方便的通过浏览器直接与Elasticsearch进行交互。
 
-Elasticsearch线上文档中的很多示例代码都附带一个`View in Sense`的链接。点击进去，就会在`Sense`控制台打开相应的实例。安装Marvel不是必须的，但是它可以通过在你本地Elasticsearch集群中运行示例代码而增加与此书的互动性。
+Elasticsearch线上文档中的很多示例代码都附带一个`View in Sense`的链接。点击进去，就会在`Sense`控制台打开相应的实例。安装Marvel不是必须的，
+但是它可以通过在你本地Elasticsearch集群中运行示例代码而增加与此书的互动性。
 
 Marvel是一个插件，可在Elasticsearch目录中运行以下命令来下载和安装：
 
@@ -31,7 +34,7 @@ Marvel是一个插件，可在Elasticsearch目录中运行以下命令来下载�
 ./bin/plugin -i elasticsearch/marvel/latest
 ```
 
-你可能想要禁用监控，你可以通过以下命令关闭Marvel：
+你可能想要禁用监控，你可以通过以下命令关闭Marvel：    
 
 ```bash
 echo 'marvel.agent.enabled: false' >> ./config/elasticsearch.yml
@@ -79,7 +82,8 @@ curl 'http://localhost:9200/?pretty'
 
 你最好找一个合适的名字来替代`cluster.name`的默认值，比如你自己的名字，这样可以防止一个新启动的节点加入到相同网络中的另一个同名的集群中。
 
-你可以通过修改`config/`目录下的`elasticsearch.yml`文件，然后重启ELasticsearch来做到这一点。当Elasticsearch在前台运行，可以使用`Ctrl-C`快捷键终止，或者你可以调用`shutdown` API来关闭：
+你可以通过修改`config/`目录下的`elasticsearch.yml`文件，然后重启ELasticsearch来做到这一点。
+当Elasticsearch在前台运行，可以使用`Ctrl-C`快捷键终止，或者你可以调用`shutdown` API来关闭：
 
 ```bash
 curl -XPOST 'http://localhost:9200/_shutdown'
